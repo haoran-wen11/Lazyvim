@@ -37,18 +37,28 @@ map("n", "sj", "<C-w>j")
 map("n", "sl", "<C-w>l")
 
 -- Resize window
-map("n", "<C-w><left>", "<C-w><")
-map("n", "<C-w><right>", "<C-w>>")
-map("n", "<C-w><up>", "<C-w>+")
-map("n", "<C-w><down>", "<C-w>-")
+map("n", "<S-left>", "<C-w>>")
+map("n", "<S-right>", "<C-w><")
+map("n", "<S-up>", "<C-w>+")
+map("n", "<S-down>", "<C-w>-")
 
--- Diagnostics
-map("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
+--Toggle/hide terminal
+map("n", "<C-`>", "<Leader>ft", { remap = true, silent = true })
+map("t", "<C-`>", "<C-/>", { remap = true, silent = true })
+
+-- Comment
+map("n", "<C-/>", function()
+  require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
 end, opts)
+map("v", "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", opts)
 
 -- Oil
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- -- Diagnostics
+-- map("n", "<C-j>", function()
+--   vim.diagnostic.goto_next()
+-- end, opts)
 
 -- local discipline = require("craftzdog.discipline")
 --
