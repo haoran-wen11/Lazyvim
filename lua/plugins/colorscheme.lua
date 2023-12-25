@@ -2,7 +2,7 @@ return {
   "catppuccin/nvim",
   name = "catppuccin",
   opts = {
-    transparent_background = vim.g.transparent_background,
+    transparent_background = true,
     show_end_of_buffer = true,
     flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
@@ -14,20 +14,6 @@ return {
       enabled = false,
       shade = "dark",
       percentage = 0.15,
-    },
-    styles = {
-      comments = { "italic" },
-      conditionals = { "italic" },
-      loops = {},
-      functions = {},
-      keywords = {},
-      strings = {},
-      variables = {},
-      numbers = {},
-      booleans = {},
-      properties = {},
-      types = {},
-      operators = {},
     },
     color_overrides = {},
     custom_highlights = {},
